@@ -1,7 +1,12 @@
 # Questão 1
 
 def converter_lista_para_string (lista):
-
+    frase = ""
+    for letra in lista:
+        frase += letra
+    frase = frase.replace("/", " ")
+    titulo = frase.title()
+    return titulo
 
 # Questão 2
 
