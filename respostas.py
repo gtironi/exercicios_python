@@ -28,16 +28,29 @@ def pares_e_impares(lista):
 
 # Questão 3
 
-def cria_matriz(linhas, colunas):
+def cria_matriz(num_linhas, num_colunas):
+    matriz = []
+    for i in range(num_linhas):
+        linha = []
+        for j in range(num_colunas):
+            linha.append(0)
+        matriz.append(linha)
+    numero = 1
+    for i in range(num_linhas):
+        for j in range(num_colunas):
+            matriz[i][j] = numero
+            numero += 1
+    return matriz
 
 
 # Questão 4
 
 def filtrar_palavras(frase, letra):
+    return 1
 
 
 # Questão 5
 
 def eh_perfeito(numero):
-
+    return 1
 
