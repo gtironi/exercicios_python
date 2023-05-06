@@ -25,7 +25,6 @@ def pares_e_impares(lista):
     resultado.append(impares)
     return resultado
 
-
 # Questão 3
 
 def cria_matriz(num_linhas, num_colunas):
@@ -42,12 +41,15 @@ def cria_matriz(num_linhas, num_colunas):
             numero += 1
     return matriz
 
-
 # Questão 4
 
 def filtrar_palavras(frase, letra):
-    return 1
-
+    lista = []
+    palavras = frase.split()
+    for palavra in palavras:
+        if palavra.count(letra) > 0 or palavra.count(letra.upper()):
+            lista.append(palavra)
+    return lista
 
 # Questão 5
 
