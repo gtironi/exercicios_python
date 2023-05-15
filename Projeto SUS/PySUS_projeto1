@@ -1,0 +1,7 @@
+from pysus.online_data import SINAN
+
+lista_doencas = SINAN.list_diseases()
+
+anos_dispo_leptospirose = SINAN.get_available_years('Leptospirose')
+
+dataframe = SINAN.download('Leptospirose', 2021)
