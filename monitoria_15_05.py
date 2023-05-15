@@ -40,12 +40,23 @@ def analise_estatistica(*valores):
         mediana = lista[int(x-1)]
     media =  soma/quantidade_numeros
     lista_unica = list(set(lista))
-    dict_quanti_num = {}
+    # dict_quanti_num = {}
+    # for numero in lista_unica:
+    #     dict_quanti_num[numero] = lista.count(numero)
+    # moda = max(dict_quanti_num, key=dict_quanti_num.get)
+    moda = lista[0]
     for numero in lista_unica:
-        dict_quanti_num[numero] = lista.count(numero)
-    moda = max(dict_quanti_num, key=dict_quanti_num.get)
+        if lista.count(numero) > lista.count(moda):
+            moda = numero
+        elif lista.count(numero) == lista.count(moda):
+            lista_moda.append(moda)
+            
+        
+        
+
 
     return media, mediana, moda
+
 
 print(analise_estatistica(1,1,1,1,2,4,6,8,8,8,8,8,10))
 
