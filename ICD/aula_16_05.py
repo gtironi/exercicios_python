@@ -51,8 +51,45 @@ def remove_duplicados(dicio):
             lista.append(dicio[chave])
     return dicio
 
-print(remove_duplicados(dc))
+# print(remove_duplicados(dc))
+
+# -------------------------------------------------------------
+
+# controle de pedidos restaurante (tipo mcdonalds)
+
+def adicionar_pedido(numero_do_pedido, fila_de_pedidos):
+    fila_de_pedidos.append(numero_do_pedido)
+    print(f"Pedido {numero_do_pedido} adicionado")
+
+def preparar_pedidos(fila_de_pedidos):
+    fila_de_pedidos.pop(0)
+    print(f"Pedido {fila_de_pedidos[0]} está pronto")
+
+def listar_pedidos_em_preparo(fila_de_pedidos):
+    for pedido in fila_de_pedidos:
+        print (f"Preparando {pedido}")
+
+def verificar_pedido(numero_do_pedido, fila_de_pedidos):
+    if numero_do_pedido in fila_de_pedidos:
+        print(f"Seu pedido é o {fila_de_pedidos.index(numero_do_pedido)+1}º na lista")
+    else:
+        print("Esse pedido não está na lista")
+        return
+    
+
+    
+
+pedidos_em_preparo = []
 
 
+adicionar_pedido(1, pedidos_em_preparo)
+adicionar_pedido(2, pedidos_em_preparo)
+adicionar_pedido(3, pedidos_em_preparo)
+listar_pedidos_em_preparo(pedidos_em_preparo)
+preparar_pedidos(pedidos_em_preparo)
+adicionar_pedido(4, pedidos_em_preparo)
+preparar_pedidos(pedidos_em_preparo)
+adicionar_pedido(5, pedidos_em_preparo)
+listar_pedidos_em_preparo(pedidos_em_preparo)
+verificar_pedido(5, pedidos_em_preparo)
 
-        
