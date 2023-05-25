@@ -10,7 +10,7 @@ import pandas as pd
 dataframe_lepto_2020 = pd.read_csv('Leptospirose.csv')
 dataframe_lepto_2020['DT_NOTIFIC'] = pd.to_datetime(dataframe_lepto_2020['DT_NOTIFIC'])
 dataframe_lepto_2020.set_index('DT_NOTIFIC', inplace = True)
-print(dataframe_lepto_2020)
+# print(dataframe_lepto_2020)
 
 # Ano
 
@@ -29,6 +29,15 @@ agrupado_por_estado = dataframe_lepto_2020.groupby('SG_UF').count().sort_values(
 # Mês
 
 agrupado_por_mês = dataframe_lepto_2020.resample('M').count()
-print(agrupado_por_mês['TP_NOT'])
+# print(agrupado_por_mês['TP_NOT'])
 
-# Mês
+# Faixa etária
+
+dataframe_lepto_2020['idade'] = decodifica_idade_SINAN(dataframe_lepto_2020.NU_IDADE_N)
+dataframe_lepto_2020['idade'] = dataframe_lepto_2020['idade'].round(2)
+agrupado_por_idade = dataframe_lepto_2020.groupby('idade').count().sort_values('TP_NOT', ascending=False)
+print(agrupado_por_idade['TP_NOT'])
+
+# Sexo
+
+# Raça e cor
