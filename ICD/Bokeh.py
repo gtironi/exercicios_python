@@ -13,3 +13,11 @@ y_flat = list(np.concatenate(y))
 output_file("iris.html")
 
 figure = figure()
+figure.circle(x_flat, y_flat)
+figure.background_fill_color = "#FFFAFA"
+figure.background_fill_alpha = 0.3
+
+# figure.plot_width = 1280
+# figure.plot_height = 720
+
+show(figure)
