@@ -14,7 +14,7 @@ output_file("iris.html")
 
 figure = figure()
 figure.circle(x_flat, y_flat)
-figure.background_fill_color = "#FFFAFA"
+figure.background_fill_color = "#0000ff"
 figure.background_fill_alpha = 0.3
 
 # figure.plot_width = 1280
