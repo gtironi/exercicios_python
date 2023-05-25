@@ -1,10 +1,20 @@
 from pysus.online_data import SINAN
+from pysus.preprocessing.decoders import decodifica_idade_SINAN
 import pandas as pd
 
-lista_doencas = SINAN.list_diseases()
+path = SINAN.download('Leptospirose', 2018)
 
-anos_dispo_leptospirose = SINAN.get_available_years('Leptospirose')
+dataframe = pd.read_parquet(path)
+dataframe['DT_NOTIFIC'] = pd.to_datetime(dataframe['DT_NOTIFIC'])
+dataframe.to_csv('Leptospirose.csv', index=False)
+dataframe_lepto_2020 = pd.read_csv('Leptospirose.csv').set_index('DT_NOTIFIC')
+print(dataframe_lepto_2020)
 
-df = SINAN.download('Leptospirose', 2021)
+# Ano
 
-df.to_csv('leptospirose.csv', index=False)
+print(len(dataframe_lepto_2020.index))
+
+# Municipio
+
+agrupado_por_municipio = dataframe_lepto_2020.groupby('ID_MUNICIP').count().sort_values('TP_NOT')
+print(agrupado_por_municipio[['TP_NOT']])
