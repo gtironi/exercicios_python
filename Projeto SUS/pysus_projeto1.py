@@ -38,7 +38,7 @@ agrupado_por_mês = dataframe_lepto_2018.resample('M').count()
 dataframe_lepto_2018['idade'] = decodifica_idade_SINAN(dataframe_lepto_2018.NU_IDADE_N)
 dataframe_lepto_2018['idade'] = dataframe_lepto_2018['idade'].round(2)
 agrupado_por_idade = dataframe_lepto_2018.groupby('idade').count().sort_values('SG_UF', ascending=False)
-# print(agrupado_por_idade['SG_UF'])
+print(agrupado_por_idade['SG_UF'])
 
 # Sexo
 agrupado_por_sexo = dataframe_lepto_2018.groupby('CS_SEXO').count().sort_values('SG_UF', ascending=False)
