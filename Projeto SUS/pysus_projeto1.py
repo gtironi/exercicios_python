@@ -11,7 +11,7 @@ dataframe_lepto_2018 = pd.read_csv('Leptospirose.csv')
 dataframe_lepto_2018['DT_NOTIFIC'] = pd.to_datetime(dataframe_lepto_2018['DT_NOTIFIC'])
 dataframe_lepto_2018.set_index('DT_NOTIFIC', inplace = True)
 dataframe_lepto_2018 = dataframe_lepto_2018[['ID_MUNICIP', 'SG_UF', 'NU_IDADE_N', 'CS_SEXO', 'CS_RACA']]
-print(dataframe_lepto_2018)
+# print(dataframe_lepto_2018)
 
 
 # Ano
