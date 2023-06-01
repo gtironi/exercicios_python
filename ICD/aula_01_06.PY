@@ -7,10 +7,14 @@ import numpy as np
 output_file("exemplo4.html")
 
 plot = figure(width=640, height=480, tools="box_zoom, pan, reset, save, wheel_zoom")
-plot.toolbar.logo= None
+plot.toolbar.logo = None
 plot.toolbar.autohide = True
 plot.toolbar_location = "below"
 
-plot.circle([1,2,3,4,5],[2,4,6,8,10])
+plot.circle([1,2,3,4,5], [2,4,6,8,10], legend_label = "sei lá")
+plot.legend.location = "top_left"
+plot.legend.background_fullfil_alpha = 0
+plot.legend.padding = 42
+
 
 show(plot)
