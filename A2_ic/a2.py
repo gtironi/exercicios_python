@@ -14,37 +14,46 @@ def questao_2(datadatapath):
     return df_municipio
 
 def questao_3(datadatapath):
-    df = le_csv(datapath)
-    pass
+    df = pd.read_csv(datadatapath)
+    # criei um dataframe com a contagem por sexo, vale notar que aqui temos 'M', 'F' e 'I'.
+    df_sexo = df.groupby("CS_SEXO").count()['SG_UF']
+    # transformo o dataframe em um dicionário
+    dicionario_sexo = dict(df_sexo)
+    # removo a chave 'I' do dicionario, já que foi pedido apenas 'M' e 'F'
+    del dicionario_sexo['I']
+    sexo_mais_numeroso = max(dicionario_sexo, key=dicionario_sexo.get)
+    print((sexo_mais_numeroso, dicionario_sexo))
+    return (sexo_mais_numeroso, dicionario_sexo)
 
 
 def questao_4(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_5(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_6(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_7(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_8(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_9(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 def questao_10(datapath):
-    df = le_csv(datapath)
+    df = pd.read_csv(datadatapath)
     pass
 
 # questao_1('A2_ic/Leptospirose.csv')
-questao_2('A2_ic/Leptospirose.csv')
+# questao_2('A2_ic/Leptospirose.csv')
+questao_3('A2_ic/Leptospirose.csv')
