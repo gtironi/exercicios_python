@@ -7,8 +7,10 @@ import pandas as pd
 # dataframe['DT_NOTIFIC'] = pd.to_datetime(dataframe['DT_NOTIFIC'])
 # dataframe.to_csv('Leptospirose.csv', index=False)
 
-dataframe_lepto_2018 = pd.read_csv('Leptospirose.csv')
+dataframe_lepto_2018 = pd.read_csv('Projeto SUS/Leptospirose.csv')
 dataframe_lepto_2018['DT_NOTIFIC'] = pd.to_datetime(dataframe_lepto_2018['DT_NOTIFIC'])
+dataframe_lepto_2018['idade'] = decodifica_idade_SINAN(dataframe_lepto_2018.NU_IDADE_N)
+dataframe_lepto_2018.to_csv('Leptospirose_2018.csv', index=False)
 dataframe_lepto_2018.set_index('DT_NOTIFIC', inplace = True)
 dataframe_lepto_2018 = dataframe_lepto_2018[['ID_MUNICIP', 'SG_UF', 'NU_IDADE_N', 'CS_SEXO', 'CS_RACA']]
 # print(dataframe_lepto_2018)
