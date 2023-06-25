@@ -1,4 +1,5 @@
 import pandas as pd
+from matplotlib import pyplot as plt
 
 AUTORES = ['Gustavo Tironi', 'Gustavo Tironi']
 
@@ -10,7 +11,7 @@ def questao_1(datapath):
 def questao_2(datapath):
     df = pd.read_csv(datapath)
     df_municipio = df.groupby('ID_MUNICIP').count()['SG_UF_NOT']
-    print(df_municipio)
+    # print(df_municipio)
     return df_municipio
 
 def questao_3(datapath):
@@ -104,7 +105,18 @@ def questao_9(datapath):
 
 def questao_10(datapath):
     df = pd.read_csv(datapath)
-    pass
+    df['DT_NOTIFICACAO'] = pd.to_datetime(df['DT_NOTIFIC'], format = '%Y%m%d')
+    df['DT_SINTOMAS'] = pd.to_datetime(df['DT_SIN_PRI'], format = '%Y%m%d')
+    df['ATRASO_NOT'] = df['DT_NOTIFICACAO'] - df['DT_SINTOMAS']
+    df['ATRASO_NOT'] = df['ATRASO_NOT'].dt.days
+    # df = df[df['ATRASO_NOT'] < 1500] corrige os outliers
+    df_municipio = questao_2(datapath)
+    df_media_por_municipio = df.groupby('ID_MUNICIP')['ATRASO_NOT'].mean()
+    df_juntos = pd.merge(df_municipio, df_media_por_municipio, left_index=True, right_index=True).rename(columns={'SG_UF_NOT': 'contagem', 'ATRASO_NOT': 'media'})
+    df_juntos.plot.scatter('contagem', 'media')
+    plt.show()
+    print(df_media_por_municipio)
+    return df_media_por_municipio
 
 # questao_1('A2_ic/Leptospirose_2018.csv')
 # questao_2('A2_ic/Leptospirose_2018.csv')
@@ -115,4 +127,4 @@ def questao_10(datapath):
 # questao_7('A2_ic/Leptospirose_2018.csv')
 # questao_8('A2_ic/Leptospirose_2018.csv')
 # questao_9('A2_ic/Leptospirose_2018.csv')
-questao_10('A2_ic/Leptospirose_2018.csv')
+# questao_10('A2_ic/Leptospirose_2018.csv')
