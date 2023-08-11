@@ -90,10 +90,24 @@ uns = np.ones(42,  dtype=np.int64)
 print(uns, '\n')
 
 identidade = np.identity(5, dtype=np.int64)
+# identidade = np.eye(5, dtype=np.int64)
 print(identidade, '\n')
 
 numeros = np.array([n for n in range(7,43)])
+# numeros = np.arange(7, 43)
 print(numeros, '\n')
 
-aleatorio = npr.randint(1, 9, 9).reshape(3,3)
-print(aleatorio)
+pares = np.arange(8, 43,2)
+print(pares, '\n')
+
+numero = npr.rand(1)
+print(numero, '\n')
+
+amostra_numeros = npr.randn(10)
+print(amostra_numeros, '\n')
+
+quarenta_e_dois = np.ones(10, dtype=np.int64) * 42
+print(quarenta_e_dois, '\n')
+
+matriz_aleatorio = npr.randint(1, 10, 9).reshape(3,3)
+print(matriz_aleatorio)
