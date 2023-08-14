@@ -38,7 +38,6 @@ print(ndarray[indices], '\n')
 
 indices = (ndarray%2 == 0)
 print(ndarray[indices], '\n')
-'''
 
 ndarray = np.arange(9).reshape(3,3)
 indices = np.array([[False, True, False], [True, False, True], [True, True, True]])
@@ -46,13 +45,21 @@ print(ndarray, '\n')
 print(indices, '\n')
 
 print(ndarray[indices], '\n')
+'''
 
+notas = np.array([87, 72, 95, 93, 70, 100])
 
+print('Average: ', np.average(notas) ,'\n')
 
+print('Median: ', np.median(notas) ,'\n')
 
+print('Standard Deviation: ', np.std(notas) ,'\n')
 
+print('Minimun and Maximum: ', np.amin(notas), np.amax(notas),'\n')
 
+print('Percentil: ', np.percentile(notas, 70),'\n')
 
+print('Peak to Peak: ', np.ptp(notas),'\n')
 
 
 
