@@ -45,7 +45,6 @@ print(ndarray, '\n')
 print(indices, '\n')
 
 print(ndarray[indices], '\n')
-'''
 
 notas = np.array([87, 72, 95, 93, 70, 100])
 
@@ -60,6 +59,52 @@ print('Minimun and Maximum: ', np.amin(notas), np.amax(notas),'\n')
 print('Percentil: ', np.percentile(notas, 70),'\n')
 
 print('Peak to Peak: ', np.ptp(notas),'\n')
+'''
+
+'''
+Exercicio
+
+Elaborar um programa que trata de uma matriz 2xN composta por:
+    
+1 - Uma colecao de valores estimados
+2 - Uma colecao de valores observados
+
+Elabore 4 funcoes:
+1 - Exibir o erro médio absoluto
+2 - Exibir o erro médio quadratico
+3 - Exibir os dados gerais da colecao (Estatistica)
+4 - Exibir um histograma
+'''
+
+linha_1 = npr.randint(1, 10, 20)
+
+erro = npr.rand(20)
+linha_2 = linha_1 + erro
+matriz = np.hstack((linha_1, linha_2)).reshape(2,20)
+print(matriz,'\n')
+
+def erromedio(array):
+    estimados = matriz[0, 0:41]
+    observados =
+    pass
+
+def erroquadratico(array):
+    pass
+
+def resumo(array):
+    pass
+
+def histograma(array):
+    data_histo = np.histogram(array, bins=10)
+    return data_histo
+
+print(matriz[0, 0:41])
+
+
+
+
+
+
 
 
 
