@@ -85,8 +85,9 @@ print(matriz,'\n')
 
 def erromedio(array):
     estimados = matriz[0, 0:41]
-    observados =
-    pass
+    observados = matriz[1, 0:41]
+    media = (sum(observados) - sum(estimados))/len(observados)
+    return media
 
 def erroquadratico(array):
     pass
@@ -97,11 +98,6 @@ def resumo(array):
 def histograma(array):
     data_histo = np.histogram(array, bins=10)
     return data_histo
-
-print(matriz[0, 0:41])
-
-
-
 
 
 
