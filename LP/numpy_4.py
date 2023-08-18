@@ -33,3 +33,8 @@ print("Tempo de loop:", fim_tempo_loop - inicio_tempo_loop)
 def calcular_quadrado(num):
     return num ** 2
 
+vetor_numpy = list(range(1,11))
+
+funcao_vetorizada = np.vectorize(calcular_quadrado)
+
+print(funcao_vetorizada(vetor_numpy))
