@@ -22,7 +22,7 @@ class animal:
         Returns:
             str: A message representing the animal's speach
         '''
-    return f"{self.name} says Hi!"
+        return f"{self.name} says Hi!"
 
     def __str__(self):
         '''
@@ -31,13 +31,13 @@ class animal:
         Returns:
             str: A string with the animal's name and species
         '''
-        return f'{self.name} {self.specie}'
+        return f'{self.name} {self.species}'
     
 class dog(animal):
     '''
     Essa classe representa um cahcorro, ela é herdada da classe animal
     '''
-    def __init__(self, breed):
+    def __init__(self, name, breed):
         '''
         Construtor da classe cachorro
 
@@ -45,6 +45,7 @@ class dog(animal):
             breed: str
                 The breed of the dog
         '''
+        super().__init__(name, species = "Dog")
         self.breed = breed
     
     def speak(self):
@@ -64,6 +65,16 @@ class dog(animal):
             str: A message representing the dog wagging its tail
         '''
         return f'{self.name} wags its tail'
+
+# create instance of Dog and Cat classes
+my_dog = dog("Chun li", "French Bulldog")
+
+#Call methods to demonstrate funcionality
+print(my_dog.speak())
+print(my_dog.wag_tail())
+
+#Display information about the animal
+print(my_dog)
 
     
 
